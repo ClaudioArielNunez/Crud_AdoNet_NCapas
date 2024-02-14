@@ -117,6 +117,35 @@ namespace CRUD_EntityLayer
             }
         }
 
+        public bool Editar(Empleado empleado)
+        {
+            bool respuesta = false;
+
+            using (SqlConnection oConexion = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand("SP_EditarEmpleado", oConexion);
+                cmd.Parameters.AddWithValue("@IdEmpleado", empleado.IdEmpleado);
+                cmd.Parameters.AddWithValue("@NombreCompleto", empleado.NombreCompleto);
+                cmd.Parameters.AddWithValue("@IdDepartamento", empleado.Departamento.IdDepartamento);
+                cmd.Parameters.AddWithValue("@Sueldo", empleado.Sueldo);
+                cmd.Parameters.AddWithValue("@FechaContrato", empleado.FechaContrato);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    oConexion.Open();
+                    int filasafectadas = cmd.ExecuteNonQuery();
+                    if(filasafectadas > 0) respuesta = true;
+
+                    return respuesta;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
     }
 
 }
