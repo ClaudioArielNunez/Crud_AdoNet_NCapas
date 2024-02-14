@@ -146,6 +146,31 @@ namespace CRUD_EntityLayer
             }
         }
 
+        public bool Eliminar(int id)
+        {
+            bool respuesta = false;
+
+            using (SqlConnection oConexion = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand("SP_EliminarEmpleado", oConexion);
+                cmd.Parameters.AddWithValue("@IdEmpleado", id);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
+                    oConexion.Open();
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    if(filasAfectadas > 0) { respuesta = true; }
+
+                    return respuesta;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
     }
 
 }
