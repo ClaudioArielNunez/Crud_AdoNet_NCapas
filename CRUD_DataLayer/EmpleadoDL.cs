@@ -102,7 +102,11 @@ namespace CRUD_EntityLayer
                 try
                 {
                     oconexion.Open();
-                    
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    if(filasAfectadas > 0)
+                    {
+                        respuesta = true;
+                    }
 
                     return respuesta;
                 }
