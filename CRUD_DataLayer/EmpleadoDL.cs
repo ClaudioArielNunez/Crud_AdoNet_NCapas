@@ -19,7 +19,7 @@ namespace CRUD_EntityLayer
 
             using (SqlConnection oConexion = new SqlConnection(Conexion.cadena))
             {
-                SqlCommand cmd = new SqlCommand( "Select * from FN_Empleados()", oConexion);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM FN_Empleados()", oConexion);
                 cmd.CommandType = CommandType.Text;
                 try
                 {
@@ -29,11 +29,13 @@ namespace CRUD_EntityLayer
                         while (dr.Read())
                         {
                             var empleado = new Empleado();
-                            empleado.IdEmpleado = int.Parse(dr["IdEmpleado"].ToString());
+                            empleado.IdEmpleado = (int)dr["IdEmpleado"];
                             empleado.NombreCompleto = dr["NombreCompleto"].ToString();
+
                             empleado.Departamento = new Departamento();
-                            empleado.Departamento.IdDepartamento = int.Parse(dr["IdDepartamento"].ToString());
+                            empleado.Departamento.IdDepartamento = Convert.ToInt32(dr["IdDepartamento"].ToString());
                             empleado.Departamento.Nombre = dr["Nombre"].ToString();
+
                             empleado.Sueldo = (decimal)dr["Sueldo"];
                             empleado.FechaContrato = dr["FechaContrato"].ToString();
 

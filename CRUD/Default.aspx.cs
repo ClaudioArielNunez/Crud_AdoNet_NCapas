@@ -14,7 +14,10 @@ namespace CRUD
         EmpleadoBL empleadoBL = new EmpleadoBL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            MostrarEmpleados();
+            //MostrarEmpleados();
+            List<Empleado> lista = empleadoBL.Lista();
+            GVEmpleado.DataSource = lista;
+            GVEmpleado.DataBind();
         }        
 
         private void MostrarEmpleados()
@@ -34,7 +37,7 @@ namespace CRUD
             LinkButton btn = (LinkButton)sender;
             string idEmpleado = btn.CommandArgument;
 
-            Response.Redirect($"~/Contact.aspx?idEmpleado=idEmpleado");
+            Response.Redirect($"~/Contact.aspx?idEmpleado="+idEmpleado);
         }
 
         protected void borrar_Click(object sender, EventArgs e)

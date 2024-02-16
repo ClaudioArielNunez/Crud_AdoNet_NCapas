@@ -18,9 +18,8 @@
 
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:LinkButton CommandArgument="<%#Eval("IdEmpleado") %>" runat="server"
-                                 OnClick="Editar_Click" CssClass="btn btn-sm btn-primary">Editar</asp:LinkButton>
-                            <asp:LinkButton CommandArgument="<%#Eval("IdEmpleado") %>" id="borrar" OnClick="borrar_Click" OnClientClick="return confirm('¿Desea eliminar?')" CssClass="btn btn-sm btn-danger" runat="server">Eliminar</asp:LinkButton>
+                            <asp:LinkButton CommandArgument='<%#Eval("IdEmpleado") %>' runat="server" OnClick="Editar_Click" CssClass="btn btn-sm btn-primary">Editar</asp:LinkButton>
+                            <asp:LinkButton CommandArgument='<%#Eval("IdEmpleado") %>' id="borrar" OnClick="borrar_Click" OnClientClick="return confirm('¿Desea eliminar?')" CssClass="btn btn-sm btn-danger" runat="server">Eliminar</asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
 

@@ -1,19 +1,27 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="CRUD.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <main aria-labelledby="title">
-        <h2 id="title"><%: Title %>.</h2>
-        <h3>Your contact page.</h3>
-        <address>
-            One Microsoft Way<br />
-            Redmond, WA 98052-6399<br />
-            <abbr title="Phone">P:</abbr>
-            425.555.0100
-        </address>
 
-        <address>
-            <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-            <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-        </address>
-    </main>
+    <asp:Label ID="lblTitulo" runat="server" CssClass="fs-4 fw-bold"></asp:Label>
+    <div class="mb-3">
+        <label class="form-label">Nombre completo</label>
+        <asp:TextBox ID="txtNombreCompleto" CssClass="form-control" runat="server" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Departamentos</label>
+        <asp:DropDownList ID="ddlDepartamento" CssClass="form-select" runat="server"></asp:DropDownList>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Sueldo </label>
+        <asp:TextBox ID="txtSueldo" CssClass="form-control"  runat="server" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Fecha de Contrato </label>
+        <asp:TextBox ID="txtFechaContrato" CssClass="form-control" TextMode="Date" runat="server" />
+    </div>
+    <div class="mb-3">
+        <asp:Button ID="btnSubmit" OnClick="btnSubmit_Click" cssClass="btn btn-sm btn-primary" runat="server" Text="Enviar" />
+        <asp:LinkButton  runat="server" PostBackUrl="~/Default.aspx" CssClass="btn btn-sm btn-warning">Volver</asp:LinkButton>
+    </div>
+
 </asp:Content>
