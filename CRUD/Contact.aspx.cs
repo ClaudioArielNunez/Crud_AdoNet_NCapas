@@ -35,7 +35,8 @@ namespace CRUD
                         txtNombreCompleto.Text = empleado.NombreCompleto;
                         CargarDepartamentos(empleado.Departamento.IdDepartamento.ToString());                        
                         txtSueldo.Text = empleado.Sueldo.ToString();//no necesita textmode en contacto.aspx
-                        //Si en fecha se cambia "yyyy-MM-dd" por "dd-MM-yyyy" no se muestra ,esto puede deberse a un tema de CultureInfo
+                        //Problema: Si en fecha se cambia "yyyy-MM-dd" por "dd-MM-yyyy" no se muestra
+                        //No deberia suceder, pero esto puede deberse a un tema de CultureInfo o a la configuración regional del sistema operativo
                         txtFechaContrato.Text = Convert.ToDateTime(empleado.FechaContrato).ToString("yyyy-MM-dd");
                     }
                     else
