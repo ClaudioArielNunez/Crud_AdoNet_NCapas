@@ -72,7 +72,7 @@ namespace CRUD
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             Empleado entidad = new Empleado();
-            entidad.IdEmpleado = idEmpleado;
+            entidad.IdEmpleado = idEmpleado; //Cuando es nuevo, tiene id = 0, pero el stored Procedure no lo usa
             entidad.NombreCompleto = txtNombreCompleto.Text;
             entidad.Departamento = new Departamento();
             entidad.Departamento.IdDepartamento = Convert.ToInt32(ddlDepartamento.SelectedValue);

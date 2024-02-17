@@ -21,7 +21,7 @@
     </div>
     <div class="mb-3">
         <asp:Button ID="btnSubmit" OnClick="btnSubmit_Click" cssClass="btn btn-sm btn-primary" runat="server" Text="Enviar" />
-        <asp:LinkButton  runat="server" PostBackUrl="~/Default.aspx" CssClass="btn btn-sm btn-warning">Volver</asp:LinkButton>
+        <a href="Default.aspx" class="btn btn-sm btn-warning">Volver</a>
     </div>
 
 </asp:Content>

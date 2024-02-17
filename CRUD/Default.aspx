@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div classs="row">
-        <div class="col-12">
+        <div class="col-12 mb-3">
             <asp:Button ID="btnNuevo" OnClick="btnNuevo_Click" CssClass="btn btn-success" runat="server" Text="Nuevo" />
         </div>
     </div>
@@ -16,10 +16,11 @@
                     <asp:BoundField DataField="Sueldo" HeaderText="Sueldo"/>
                     <asp:BoundField DataField="FechaContrato" HeaderText="Fecha de Contrato" />
 
-                    <asp:TemplateField>
+                    <asp:TemplateField HeaderText="Opciones de Administrador">
                         <ItemTemplate>
                             <asp:LinkButton CommandArgument='<%#Eval("IdEmpleado") %>' runat="server" OnClick="Editar_Click" CssClass="btn btn-sm btn-primary">Editar</asp:LinkButton>
                             <asp:LinkButton CommandArgument='<%#Eval("IdEmpleado") %>' id="borrar" OnClick="borrar_Click" OnClientClick="return confirm('¿Desea eliminar?')" CssClass="btn btn-sm btn-danger" runat="server">Eliminar</asp:LinkButton>
+                            <asp:LinkButton CommandArgument='<%#Eval("IdEmpleado") %>' id="ver" OnClick="ver_Click"  CssClass="btn btn-sm btn-warning" runat="server">Ver Detalle</asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
 

@@ -37,12 +37,13 @@ namespace CRUD
             LinkButton btn = (LinkButton)sender;
             string idEmpleado = btn.CommandArgument;
 
-            Response.Redirect($"~/Contact.aspx?idEmpleado="+idEmpleado);
+            Response.Redirect("~/Contact.aspx?idEmpleado="+idEmpleado);
         }
 
         protected void borrar_Click(object sender, EventArgs e)
         {
-            LinkButton btn = (LinkButton)sender;
+            //LinkButton btn = (LinkButton)sender;
+            LinkButton btn = sender as LinkButton;
             string idEmpleado = btn.CommandArgument;
 
             bool respuesta = empleadoBL.Eliminar(int.Parse(idEmpleado));
@@ -50,6 +51,14 @@ namespace CRUD
             {
                 MostrarEmpleados();
             }
+        }
+
+        protected void ver_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = sender as LinkButton;
+            string id = btn.CommandArgument;
+
+            Response.Redirect("~/About.aspx?id="+id);
         }
     }
 }
